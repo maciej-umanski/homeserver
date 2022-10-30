@@ -1,0 +1,38 @@
+version: "3.5"
+
+services:
+
+  no-ip:
+    image: mumanski/no-ip:latest
+    container_name: no-ip
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - no-ip_volume:/config
+    restart: unless-stopped
+    environment:
+      USERNAME: "${NOIP_USERNAME}"
+      PASSWORD: "${NOIP_PASSWORD}"
+      DOMAINS: "${NOIP_DOMAINS}"
+      INTERVAL: "${NOIP_INTERVAL}"
+
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "853:853"
+    environment:
+      TZ: "Europe/Warsaw"
+      WEBPASSWORD: "${PIHOLE_PASSWORD}"
+    volumes:
+      - pihole_volume:/etc/pihole'
+      - pihole_dnsmasq_volume:/etc/dnsmasq.d'
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+volumes:
+  pihole_volume:
+  pihole_dnsmasq_volume:
+  no-ip_volume:
