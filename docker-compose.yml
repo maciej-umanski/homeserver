@@ -2,9 +2,9 @@ version: "3.5"
 
 services:
 
-  no-ip:
+  noip:
     image: mumanski/no-ip:latest
-    container_name: no-ip
+    container_name: noip
     volumes:
       - /etc/localtime:/etc/localtime
       - no-ip_volume:/config
@@ -33,4 +33,4 @@ services:
 volumes:
   pihole_volume:
   pihole_dnsmasq_volume:
-  no-ip_volume:
+  noip_volume:
