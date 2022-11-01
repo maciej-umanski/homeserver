@@ -24,8 +24,8 @@ services:
       - "53:53/udp"
       - "8080:80/tcp"
     volumes:
-      - pihole:/etc/pihole'
-      - pihole_dnsmasq:/etc/dnsmasq.d'
+      - pihole:/etc/pihole
+      - pihole_dnsmasq:/etc/dnsmasq.d
     environment:
       TZ: "${GENERAL_TIMEZONE}"
       WEBPASSWORD: "${PIHOLE_PASSWORD}"
