@@ -43,6 +43,13 @@ services:
     cap_add:
       - NET_ADMIN
 
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
 volumes:
   pihole:
   pihole_dnsmasq:
