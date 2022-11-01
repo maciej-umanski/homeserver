@@ -30,7 +30,21 @@ services:
       TZ: "Europe/Warsaw"
       WEBPASSWORD: "${PIHOLE_PASSWORD}"
 
+  openvpn:
+    image: alekslitvinenk/openvpn
+    container_name: openvpn
+    restart: unless-stopped
+    ports:
+      - "1194:1194/udp"
+    volumes:
+      - openvpn_volume:/opt/Dockovpn_data
+    environment:
+      HOST_ADDR: "${OPENVPN_DOMAIN_ADDR}"
+    cap_add:
+      - NET_ADMIN
+
 volumes:
   pihole_volume:
   pihole_dnsmasq_volume:
   noip_volume:
+  openvpn_volume:
