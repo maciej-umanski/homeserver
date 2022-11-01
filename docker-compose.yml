@@ -27,7 +27,7 @@ services:
       - pihole:/etc/pihole'
       - pihole_dnsmasq:/etc/dnsmasq.d'
     environment:
-      TZ: "Europe/Warsaw"
+      TZ: "${GENERAL_TIMEZONE}"
       WEBPASSWORD: "${PIHOLE_PASSWORD}"
 
   openvpn:
@@ -62,7 +62,7 @@ services:
     environment:
       USERID: '1000'
       GROUPID: '1000'
-      TZ: 'Europe/Warsaw'
+      TZ: "${GENERAL_TIMEZONE}"
     tmpfs:
       - /tmp
     volumes:
