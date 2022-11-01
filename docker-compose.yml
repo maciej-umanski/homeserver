@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime
-      - no-ip_volume:/config
+      - noip:/config
     environment:
       USERNAME: "${NOIP_USERNAME}"
       PASSWORD: "${NOIP_PASSWORD}"
@@ -24,8 +24,8 @@ services:
       - "53:53/udp"
       - "8080:80/tcp"
     volumes:
-      - pihole_volume:/etc/pihole'
-      - pihole_dnsmasq_volume:/etc/dnsmasq.d'
+      - pihole:/etc/pihole'
+      - pihole_dnsmasq:/etc/dnsmasq.d'
     environment:
       TZ: "Europe/Warsaw"
       WEBPASSWORD: "${PIHOLE_PASSWORD}"
@@ -37,14 +37,14 @@ services:
     ports:
       - "1194:1194/udp"
     volumes:
-      - openvpn_volume:/opt/Dockovpn_data
+      - openvpn:/opt/Dockovpn_data
     environment:
       HOST_ADDR: "${OPENVPN_DOMAIN_ADDR}"
     cap_add:
       - NET_ADMIN
 
 volumes:
-  pihole_volume:
-  pihole_dnsmasq_volume:
-  noip_volume:
-  openvpn_volume:
+  pihole:
+  pihole_dnsmasq:
+  noip:
+  openvpn:
