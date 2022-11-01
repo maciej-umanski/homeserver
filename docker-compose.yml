@@ -39,7 +39,7 @@ services:
     volumes:
       - openvpn:/opt/Dockovpn_data
     environment:
-      HOST_ADDR: "${OPENVPN_DOMAIN_ADDR}"
+      HOST_ADDR: "${OPENVPN_DOMAIN_ADDRESS}"
     cap_add:
       - NET_ADMIN
 
@@ -67,7 +67,7 @@ services:
       - /tmp
     volumes:
       - ${SAMBA_MOUNT_PATH}:/mnt:z
-    command: '-s "homeserver;/mnt;yes;no;no;${SAMBA_USER}" -u "${SAMBA_USER};${SAMBA_PASS}" -p'
+    command: '-s "homeserver;/mnt;yes;no;no;${SAMBA_USERNAME}" -u "${SAMBA_USERNAME};${SAMBA_PASSWORD}" -p'
 
 volumes:
   pihole:
