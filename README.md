@@ -5,6 +5,7 @@
 * [OpenVPN](https://github.com/dockovpn/dockovpn)
 * [Watchtower](https://github.com/containrrr/watchtower)
 * [Samba](https://github.com/dperson/samba)
+* [Gitea](https://github.com/go-gitea/gitea)
 
 # OpenVPN client retrieve
 ```shell
