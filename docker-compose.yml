@@ -19,6 +19,7 @@ services:
     image: pihole/pihole:latest
     container_name: pihole
     restart: unless-stopped
+    hostname: "${GENERAL_HOSTNAME}"
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -29,6 +30,18 @@ services:
     environment:
       TZ: "${GENERAL_TIMEZONE}"
       WEBPASSWORD: "${PIHOLE_PASSWORD}"
+      FTLCONF_LOCAL_IPV4: "${GENERAL_HOST_IP}"
+      PIHOLE_DNS_: "unbound;${PIHOLE_FALLBACK_DNS}"
+      DNSMASQ_LISTENING: single
+    depends_on:
+      - unbound
+
+  unbound:
+    image: mvance/unbound:latest
+    container_name: unbound
+    restart: unless-stopped
+    volumes:
+      - unbound:/opt/unbound/etc/unbound/
 
   openvpn:
     image: alekslitvinenk/openvpn
@@ -106,6 +119,7 @@ volumes:
   openvpn:
   gitea:
   gitea_postgresql:
+  unbound:
 
 networks:
   gitea_postgresql:

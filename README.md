@@ -6,6 +6,7 @@
 * [Watchtower](https://github.com/containrrr/watchtower)
 * [Samba](https://github.com/dperson/samba)
 * [Gitea](https://github.com/go-gitea/gitea)
+* [Unbound](https://github.com/MatthewVance/unbound-docker-rpi)
 
 # OpenVPN client retrieve
 ```shell
