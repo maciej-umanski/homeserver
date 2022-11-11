@@ -27,9 +27,6 @@ services:
     volumes:
       - pihole:/etc/pihole
       - pihole_dnsmasq:/etc/dnsmasq.d
-    networks:
-      - pihole_unbound
-      - default
     environment:
       TZ: "${GENERAL_TIMEZONE}"
       WEBPASSWORD: "${PIHOLE_PASSWORD}"
@@ -45,8 +42,6 @@ services:
     restart: unless-stopped
     volumes:
       - unbound:/opt/unbound/etc/unbound/
-    networks:
-      - pihole_unbound
 
   openvpn:
     image: alekslitvinenk/openvpn
@@ -128,6 +123,4 @@ volumes:
 
 networks:
   gitea_postgresql:
-    internal: true
-  pihole_unbound:
     internal: true
