@@ -12,8 +12,8 @@ installBase() {
 
 installFull() {
   installBase
-  sh "$SCRIPT_PATH"/system/install-full-software.sh
   sh "$SCRIPT_PATH"/system/add-apt-repos.sh
+  sh "$SCRIPT_PATH"/system/install-full-software.sh
   sh "$SCRIPT_PATH"/system/install-kvm.sh
 }
 
