@@ -1,0 +1,22 @@
+version: "3.5"
+
+services:
+
+  samba:
+    image: dperson/samba
+    container_name: samba
+    restart: unless-stopped
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    environment:
+      USERID: '1000'
+      GROUPID: '1000'
+      TZ: "${TIMEZONE}"
+    tmpfs:
+      - /tmp
+    volumes:
+      - ${MOUNT_PATH}:/mnt:z
+    command: '-s "homeserver;/mnt;yes;no;no;${USERNAME}" -u "${USERNAME};${PASSWORD}" -p'

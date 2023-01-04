@@ -1,5 +1,5 @@
 # Hardware
-* ThinkCentre M73 (i5-4460s, 8GB RAM)
+* Lenovo M900 Tiny (i5-6500T, 16GB RAM)
 * Minimal Debian 11
 
 # Bootstrap actions
@@ -14,7 +14,6 @@
 * add contrib and non-free repos to APT
 * firmware-linux-nonfree 
 * intel-microcode 
-* firmware-realtek
 * KVM (libvirt) with configuration
   * systemd service to allow bridged networking with docker
 
@@ -40,11 +39,12 @@
 * [Debian 11](https://www.debian.org)
 
 # Misc
-### OpenVPN client retrieve
+### OpenVPN
+* Forward UDP port 1194 to your box
+* Retrieve client configuration: 
 ```shell
 docker exec openvpn wget -q --output-document - localhost:8080 | tee client.ovpn > /dev/null
 ```
 
 # Todo
-* Split docker services into directories
 * Add bootstrap docker-compose up and docker-compose down
