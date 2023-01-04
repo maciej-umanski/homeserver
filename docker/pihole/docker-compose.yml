@@ -24,7 +24,6 @@ services:
     environment:
       TZ: "${TIMEZONE}"
       WEBPASSWORD: "${PASSWORD}"
-      FTLCONF_LOCAL_IPV4: "${HOST_IP}"
       PIHOLE_DNS_: "unbound;${FALLBACK_DNS}"
       DNSMASQ_LISTENING: single
     depends_on:
