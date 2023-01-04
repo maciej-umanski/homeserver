@@ -39,7 +39,9 @@
 * [Debian 11](https://www.debian.org)
 
 # Misc
-### OpenVPN client retrieve
+### OpenVPN
+* Forward UDP port 1194 to your box
+* Retrieve client configuration: 
 ```shell
 docker exec openvpn wget -q --output-document - localhost:8080 | tee client.ovpn > /dev/null
 ```
