@@ -11,7 +11,7 @@ services:
     volumes:
       - openvpn:/opt/Dockovpn_data
     environment:
-      HOST_ADDR: "${OPENVPN_DOMAIN_ADDRESS}"
+      HOST_ADDR: "${EXTERNAL_HOSTNAME}"
     cap_add:
       - NET_ADMIN
 

@@ -14,9 +14,9 @@ services:
     environment:
       USERID: '1000'
       GROUPID: '1000'
-      TZ: "${GENERAL_TIMEZONE}"
+      TZ: "${TIMEZONE}"
     tmpfs:
       - /tmp
     volumes:
-      - ${SAMBA_MOUNT_PATH}:/mnt:z
-    command: '-s "homeserver;/mnt;yes;no;no;${SAMBA_USERNAME}" -u "${SAMBA_USERNAME};${SAMBA_PASSWORD}" -p'
+      - ${MOUNT_PATH}:/mnt:z
+    command: '-s "homeserver;/mnt;yes;no;no;${USERNAME}" -u "${USERNAME};${PASSWORD}" -p'

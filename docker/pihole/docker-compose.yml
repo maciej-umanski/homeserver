@@ -13,7 +13,7 @@ services:
     image: pihole/pihole:latest
     container_name: pihole
     restart: unless-stopped
-    hostname: "${GENERAL_HOSTNAME}"
+    hostname: "${INTERNAL_HOSTNAME}"
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -22,10 +22,10 @@ services:
       - pihole:/etc/pihole
       - pihole_dnsmasq:/etc/dnsmasq.d
     environment:
-      TZ: "${GENERAL_TIMEZONE}"
-      WEBPASSWORD: "${PIHOLE_PASSWORD}"
-      FTLCONF_LOCAL_IPV4: "${GENERAL_HOST_IP}"
-      PIHOLE_DNS_: "unbound;${PIHOLE_FALLBACK_DNS}"
+      TZ: "${TIMEZONE}"
+      WEBPASSWORD: "${PASSWORD}"
+      FTLCONF_LOCAL_IPV4: "${HOST_IP}"
+      PIHOLE_DNS_: "unbound;${FALLBACK_DNS}"
       DNSMASQ_LISTENING: single
     depends_on:
       - unbound

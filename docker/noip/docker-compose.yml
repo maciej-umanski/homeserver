@@ -10,10 +10,10 @@ services:
       - /etc/localtime:/etc/localtime
       - noip:/config
     environment:
-      USERNAME: "${NOIP_USERNAME}"
-      PASSWORD: "${NOIP_PASSWORD}"
-      DOMAINS: "${NOIP_DOMAINS}"
-      INTERVAL: "${NOIP_INTERVAL}"
+      USERNAME: "${USERNAME}"
+      PASSWORD: "${PASSWORD}"
+      DOMAINS: "${DOMAINS}"
+      INTERVAL: "${INTERVAL}"
 
 volumes:
   noip:
