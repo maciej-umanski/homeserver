@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+
+  noip:
+    image: mumanski/no-ip:latest
+    container_name: noip
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - noip:/config
+    environment:
+      USERNAME: "${NOIP_USERNAME}"
+      PASSWORD: "${NOIP_PASSWORD}"
+      DOMAINS: "${NOIP_DOMAINS}"
+      INTERVAL: "${NOIP_INTERVAL}"
+
+volumes:
+  noip:

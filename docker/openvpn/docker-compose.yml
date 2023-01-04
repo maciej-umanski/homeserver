@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+
+  openvpn:
+    image: alekslitvinenk/openvpn
+    container_name: openvpn
+    restart: unless-stopped
+    ports:
+      - "1194:1194/udp"
+    volumes:
+      - openvpn:/opt/Dockovpn_data
+    environment:
+      HOST_ADDR: "${OPENVPN_DOMAIN_ADDRESS}"
+    cap_add:
+      - NET_ADMIN
+
+volumes:
+  openvpn:

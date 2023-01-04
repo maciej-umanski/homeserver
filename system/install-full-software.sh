@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOFTWARE_TO_INSTALL=firmware-linux-nonfree intel-microcode firmware-realtek
+SOFTWARE_TO_INSTALL=firmware-linux-nonfree intel-microcode
 
 sudo apt update
 
