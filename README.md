@@ -1,10 +1,17 @@
 ## Specification
-* Dell Wyse Dx0d (2GB RAM, 8GB ROM)
+* Dell Wyse DX0D
+  * AMD G-T48E
+  * 2GB DDR3L RAM
+  * 8GB Flash Drive
 * Debian 11 Bullseye
+
+## Prerequisites
+* Wget is installed (Included in standard system utilities in tasksel)
+
 
 ## Bootstrap
 ```shell
-sudo su -c "bash <(wget -qO- to-update)" root
+wget -qO - urlhere | sudo bash -s "$USER"
 ```
 
 ## What's included?
@@ -12,7 +19,7 @@ sudo su -c "bash <(wget -qO- to-update)" root
 * Turn off MOTD
 * [Debloat APT](https://dennislee.xyz/2020/debian-eliminate-dependency-bloat/)
 * Enable contrib and non-free APT repositories
-* Install Software
+* Install Software (hardware specific)
   * Docker
   * Openssh server
   * Vim
