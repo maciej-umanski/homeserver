@@ -6,8 +6,7 @@
 * Debian 11 Bullseye
 
 ## Prerequisites
-* Wget is installed (Included in standard system utilities in tasksel)
-
+* Wget
 
 ## Bootstrap
 ```shell
@@ -19,12 +18,13 @@ wget -qO - urlhere | sudo bash -s "$USER"
 * Turn off MOTD
 * [Debloat APT](https://dennislee.xyz/2020/debian-eliminate-dependency-bloat/)
 * Enable contrib and non-free APT repositories
-* Install Software (hardware specific)
+* Install Software
   * Docker
   * Openssh server
   * Vim
   * firmware-linux-nonfree 
   * amd-microcode
+  * git
 ### Docker Services
 * [No-ip](https://github.com/maciej-umanski/docker-no-ip)
 * [Pi-hole](https://github.com/pi-hole/docker-pi-hole) + [Unbound](https://github.com/MatthewVance/unbound-docker-rpi)
