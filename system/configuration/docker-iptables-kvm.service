@@ -1,7 +1,0 @@
-[Unit]
-Description = Apply iptables rules for docker and kvm bridge networking
-[Service]
-Type=oneshot
-ExecStart=/bin/sh -c 'iptables -A FORWARD -i br0 -o br0 -j ACCEPT'
-[Install]
-WantedBy=network-online.target
