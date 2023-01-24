@@ -1,20 +1,13 @@
 ## Specification
-* Dell Wyse DX0D
-  * AMD G-T48E
-  * 2GB DDR3L RAM
-  * 8GB Flash Drive
-* Debian 11 Bullseye
-
-## Prerequisites
-* Wget
+* Dell Wyse DX0D (AMD G-T48E / 2GB RAM / 8GB FLASH)
+* Debian 11 Bullseye - minimal installation
 
 ## Bootstrap
 ```shell
-wget -qO - urlhere | sudo bash -s "$USER"
+wget -qO - https://raw.githubusercontent.com/maciej-umanski/homeserver/master/install.sh | sudo bash -s "$USER"
 ```
 
-## What's included?
-### Install script
+## Install Script
 * Turn off MOTD
 * [Debloat APT](https://dennislee.xyz/2020/debian-eliminate-dependency-bloat/)
 * Enable contrib and non-free APT repositories
@@ -25,7 +18,8 @@ wget -qO - urlhere | sudo bash -s "$USER"
   * firmware-linux-nonfree 
   * amd-microcode
   * git
-### Docker Services
+
+## Docker Services
 * [No-ip](https://github.com/maciej-umanski/docker-no-ip)
 * [Pi-hole](https://github.com/pi-hole/docker-pi-hole) + [Unbound](https://github.com/MatthewVance/unbound-docker-rpi)
 * [OpenVPN](https://github.com/dockovpn/dockovpn)
