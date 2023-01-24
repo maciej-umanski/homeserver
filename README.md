@@ -18,6 +18,7 @@ wget -qO - https://raw.githubusercontent.com/maciej-umanski/homeserver/master/in
   * firmware-linux-nonfree 
   * amd-microcode
   * git
+* Pull this repository
 
 ## Docker Services
 * [No-ip](https://github.com/maciej-umanski/docker-no-ip)

@@ -37,3 +37,6 @@ usermod -aG docker "$USERNAME"
 
 # Install needed software
 apt update && apt install openssh-server vim firmware-linux-nonfree amd64-microcode git -y
+
+# Pull this repository
+git pull https://github.com/maciej-umanski/homeserver.git
