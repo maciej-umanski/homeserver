@@ -1,6 +1,6 @@
 ## Specification
 * Dell Wyse DX0D (AMD G-T48E / 2GB RAM / 8GB FLASH)
-* Debian 11 Bullseye - minimal installation
+* Debian 11 Bullseye
 
 ## Bootstrap
 ```shell
@@ -22,9 +22,9 @@ wget -qO - https://raw.githubusercontent.com/maciej-umanski/homeserver/master/in
 
 ## Docker Services
 * [No-ip](https://github.com/maciej-umanski/docker-no-ip)
-* [Pi-hole](https://github.com/pi-hole/docker-pi-hole) + [Unbound](https://github.com/MatthewVance/unbound-docker-rpi)
+* [Pi-hole](https://github.com/pi-hole/docker-pi-hole)
+* [Unbound](https://github.com/MatthewVance/unbound-docker-rpi)
 * [OpenVPN](https://github.com/dockovpn/dockovpn)
-* [Samba](https://github.com/dperson/samba)
 
 ## Misc
 ### OpenVPN
