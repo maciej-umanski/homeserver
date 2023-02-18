@@ -45,7 +45,7 @@ services:
       - "8080:80/tcp"
     volumes:
       - pihole:/etc/pihole
-      - pihole_dnsmasq:/etc/dnsmasq.d
+      - ./dnsmasq:/etc/dnsmasq.d
     environment:
       TZ: "Europe/Warsaw"
       PIHOLE_DNS_: "unbound"
@@ -58,4 +58,3 @@ volumes:
   openvpn:
   unbound:
   pihole:
-  pihole_dnsmasq:
