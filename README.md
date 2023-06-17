@@ -1,35 +1,34 @@
-## Specification
-* Dell Wyse DX0D (AMD G-T48E / 2GB RAM / 8GB FLASH)
-* Debian 11 Bullseye
+## Description
+This repository contains configuration of my terminal acting as secure gateway to my home network. Also act as DNS resolver and Ad blocker.
 
-## Bootstrap
-```shell
-wget -qO - https://raw.githubusercontent.com/maciej-umanski/homeserver/master/install.sh | sudo bash -s "$USER"
-```
+## Tested Configuration
+* Dell Wyse DX0D
+  * CPU - AMD G-T48E
+  * RAM - 2GB DDR3
+  * ROM - 8GB FLASH
+  * OS - Debian 11.7 Bullseye
 
-## Install Script
+## Installation Guide
+Please follow [this](/docs/GUIDE.md) guide.
+
+## Bootstrap Script Content
 * Turn off MOTD
 * [Debloat APT](https://dennislee.xyz/2020/debian-eliminate-dependency-bloat/)
 * Enable contrib and non-free APT repositories
-* Install Software
-  * Docker
-  * Openssh server
-  * Vim
-  * firmware-linux-nonfree 
+* Configure static ip based on current DHCP connection, with cloudflare dns resolver.
+* Install hardware specific software
+  * firmware-linux-nonfree
   * amd-microcode
+  * firmware-realtek
+* Install classic software
+  * Docker
   * git
+  * net-tools
 * Pull this repository
+* Reboot system
 
 ## Docker Services
 * [No-ip](https://github.com/maciej-umanski/docker-no-ip)
 * [Pi-hole](https://github.com/pi-hole/docker-pi-hole)
 * [Unbound](https://github.com/MatthewVance/unbound-docker-rpi)
 * [OpenVPN](https://github.com/dockovpn/dockovpn)
-
-## Misc
-### OpenVPN
-* Forward UDP port 1194 to your box
-* Retrieve client configuration: 
-```shell
-docker exec openvpn wget -q --output-document - localhost:8080 | tee client.ovpn > /dev/null
-```
