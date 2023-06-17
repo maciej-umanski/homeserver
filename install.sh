@@ -43,7 +43,7 @@ ADDRESS=$(hostname -I | awk '{print $1}')
 
 mv /etc/network/interfaces /etc/network/interfaces.bak
 
-tee -a /etc/network/interface > /dev/null <<EOT
+tee -a /etc/network/interfaces > /dev/null <<EOT
 source /etc/network/interfaces.d/*
 
 # The loopback network interface
