@@ -1,7 +1,9 @@
 # Installation guide
 Following this tutorial will help you configure your own terminal
+
 ## IMPORTANT
 If the bootstrap script fails before restarting the server. **DO NOT** run the bootstrap script again. You need to perform fresh installation of operating system.
+
 ## Preparation
 * Perform clean installation of Debian 11 with these options:
     * Skip root account creation

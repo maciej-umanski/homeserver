@@ -1,6 +1,9 @@
 ## Description
 This repository contains configuration of my terminal acting as secure gateway to my home network. Also act as DNS resolver and Ad blocker.
 
+## Installation Guide
+Please follow [this](/docs/GUIDE.md) guide.
+
 ## Tested Configuration
 * Dell Wyse DX0D
   * CPU - AMD G-T48E
@@ -8,22 +11,20 @@ This repository contains configuration of my terminal acting as secure gateway t
   * ROM - 8GB FLASH
   * OS - Debian 11.7 Bullseye
 
-## Installation Guide
-Please follow [this](/docs/GUIDE.md) guide.
-
 ## Bootstrap Script Content
 * Turn off MOTD
-* [Debloat APT](https://dennislee.xyz/2020/debian-eliminate-dependency-bloat/)
 * Enable contrib and non-free APT repositories
-* Configure static ip based on current DHCP connection, with cloudflare dns resolver.
-* Install hardware specific software
-  * firmware-linux-nonfree
-  * amd-microcode
-  * firmware-realtek
-* Install classic software
-  * Docker
-  * git
-  * net-tools
+* [Debloat APT](https://dennislee.xyz/2020/debian-eliminate-dependency-bloat/)
+* Install software from APT
+  * hardware specific
+    * firmware-linux-nonfree
+    * amd-microcode
+    * firmware-realtek
+  * classic
+    * git
+    * net-tools
+* Install Docker
+* Configure static ip based on current DHCP connection using cloudflare dns resolver.
 * Pull this repository
 * Reboot system
 

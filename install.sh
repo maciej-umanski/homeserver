@@ -24,14 +24,18 @@ EOT
 
 apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y
 
+# Install hardware specific software from apt
+########################################################################################################################
+apt install firmware-linux-nonfree amd64-microcode git firmware-realtek net-tools -y
+
+# Install classic software from apt
+########################################################################################################################
+apt install git net-tools -y
+
 # Install Docker
 ########################################################################################################################
 wget -qO - https://get.docker.com | bash
 usermod -aG docker "$USERNAME"
-
-# Install missing software from apt
-########################################################################################################################
-apt install firmware-linux-nonfree amd64-microcode git firmware-realtek net-tools -y
 
 # Set static ip
 ########################################################################################################################
