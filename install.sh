@@ -51,12 +51,11 @@ auto lo
 iface lo inet loopback
 
 # The primary network interface
-auto echo $INTERFACE
+auto $INTERFACE
 iface $INTERFACE inet static
- address echo $ADDRESS
- netmask echo $NETMASK
- gateway echo $GATEWAY
- broadcast echo $BROADCAST
+ address $ADDRESS
+ netmask $NETMASK
+ gateway $GATEWAY
  dns-nameservers 1.1.1.1 1.0.0.1
 EOT
 
