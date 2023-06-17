@@ -37,7 +37,6 @@ apt install firmware-linux-nonfree amd64-microcode git firmware-realtek net-tool
 ########################################################################################################################
 INTERFACE=$(ip -o -4 route show to default | awk '{print $5}')
 GATEWAY=$(ip -o -4 route show to default | awk '{print $3}')
-BROADCAST=$(ip -o -4 route show to default | awk '{print $6}')
 NETMASK=$(ifconfig | grep -i mask | awk '{print $4}' | head -1)
 ADDRESS=$(hostname -I | awk '{print $1}')
 
