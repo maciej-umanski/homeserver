@@ -25,7 +25,6 @@ Please follow [this](/docs/GUIDE.md) guide.
     * net-tools
 * Install Docker
 * Configure static ip based on current DHCP connection using cloudflare dns resolver.
-* Pull this repository
 * Reboot system
 
 ## Docker Services
@@ -33,3 +32,4 @@ Please follow [this](/docs/GUIDE.md) guide.
 * [Pi-hole](https://github.com/pi-hole/docker-pi-hole)
 * [Unbound](https://github.com/MatthewVance/unbound-docker-rpi)
 * [OpenVPN](https://github.com/dockovpn/dockovpn)
+* [Whoami](https://github.com/traefik/whoami)

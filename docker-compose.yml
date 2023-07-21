@@ -52,6 +52,13 @@ services:
     depends_on:
       - unbound
 
+  whoami:
+    image: traefik/whoami
+    container_name: whoami
+    restart: unless-stopped
+    ports:
+      - "80:80/tcp"
+
 volumes:
   noip:
   openvpn:
