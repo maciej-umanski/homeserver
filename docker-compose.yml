@@ -12,7 +12,7 @@ services:
     environment:
       USERNAME: "${NOIP_USERNAME}"
       PASSWORD: "${NOIP_PASSWORD}"
-      DOMAINS: "${EXTERNAL_DOMAIN}"
+      DOMAINS: "${NOIP_DOMAIN}"
       INTERVAL: "30m"
 
   openvpn:
@@ -24,7 +24,7 @@ services:
     volumes:
       - openvpn:/opt/Dockovpn_data
     environment:
-      HOST_ADDR: "${EXTERNAL_DOMAIN}"
+      HOST_ADDR: "${NOIP_DOMAIN}"
     cap_add:
       - NET_ADMIN
 
