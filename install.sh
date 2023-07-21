@@ -62,10 +62,6 @@ iface $INTERFACE inet static
  dns-nameservers 1.1.1.1 1.0.0.1
 EOT
 
-# Pull this repository
-########################################################################################################################
-git clone https://github.com/maciej-umanski/homeserver.git
-
 # Reboot server
 ########################################################################################################################
 reboot now
