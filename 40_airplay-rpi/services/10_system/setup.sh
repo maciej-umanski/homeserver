@@ -32,7 +32,3 @@ EOT
 sudo iwconfig wlan0 power off
 sudo iw dev wlan0 set power_save off
 sleep 5
-
-# Install software
-########################################################################################################################
-sudo apt install git -y

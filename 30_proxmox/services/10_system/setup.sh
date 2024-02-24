@@ -11,7 +11,7 @@ touch /home/"${USER}"/.hushlogin
 sed -i -e 's|^deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise|#&|' -e '$a\deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription' /etc/apt/sources.list.d/pve-enterprise.list
 sed -i -e 's|^deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise|#&|' -e '$a\deb http://download.proxmox.com/debian/ceph-quincy bookworm no-subscription' /etc/apt/sources.list.d/ceph.list
 
-sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y
+apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y
 
 # Delete local-lvm and resize local
 ########################################################################################################################
@@ -39,3 +39,7 @@ if [ "$answer" = "yes" ]; then
   echo 'LABEL=data /mnt/data ext4 defaults 0 2' | tee -a /etc/fstab
   mount -a
 fi
+
+# Install software
+########################################################################################################################
+apt install avahi-daemon -y

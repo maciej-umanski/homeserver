@@ -44,3 +44,8 @@ iface $INTERFACE inet static
 EOT
 
 sudo apt purge --autoremove net-tools -y
+
+
+# Install software
+########################################################################################################################
+sudo apt install avahi-daemon -y
