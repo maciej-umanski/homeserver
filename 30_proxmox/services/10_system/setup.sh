@@ -29,15 +29,18 @@ if [ "$answer" = "yes" ]; then
   if [ "$answer1" = "yes" ]; then
       echo "Clearing the disk..."
       apt install parted -y
-      parted /dev/sdb mklabel gpt
-      parted -a opt /dev/sdb mkpart primary ext4 0% 100%
-      mkfs.ext4 -L data /dev/sdb1
+      parted /dev/sda mklabel gpt
+      parted -a opt /dev/sda mkpart primary ext4 0% 100%
+      mkfs.ext4 -L data /dev/sda1
       echo "Disk cleared successfully."
   fi
 
   mkdir -p /mnt/data
   echo 'LABEL=data /mnt/data ext4 defaults 0 2' | tee -a /etc/fstab
   mount -a
+  systemctl daemon-reload
+
+  apt purge --autoremove parted -y
 fi
 
 # Install software

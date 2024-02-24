@@ -33,5 +33,8 @@ Add AirPlay2 support to Panasonic SC-PMX90 stereo system through PC input.
     * Services
       * Enable SSH: **enable**
       * Use password authentication: **enable**
-
+* Install missing software through apt
+  ```shell
+  sudo apt install git -y
+  ```
 * Execute `bootstrap.sh`.

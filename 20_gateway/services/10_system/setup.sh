@@ -6,17 +6,6 @@ cd "$(dirname "$0")"
 ########################################################################################################################
 touch /home/"${USER}"/.hushlogin
 
-# Debloat APT
-########################################################################################################################
-sudo tee -a /etc/apt/apt.conf.d/99_norecommends > /dev/null <<EOT
-APT::Install-Suggests "0";
-APT::Install-Recommends "0";
-APT::AutoRemove::RecommendsImportant "0";
-APT::AutoRemove::SuggestsImportant "0";
-EOT
-
-sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y
-
 # Set static ip
 ########################################################################################################################
 sudo apt install git net-tools -y
@@ -44,7 +33,6 @@ iface $INTERFACE inet static
 EOT
 
 sudo apt purge --autoremove net-tools -y
-
 
 # Install software
 ########################################################################################################################
