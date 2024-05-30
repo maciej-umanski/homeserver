@@ -22,10 +22,10 @@ resize2fs /dev/mapper/pve-root
 
 # Clear and connect second drive
 ########################################################################################################################
-read -pr "Do you want to add second disk? (yes/no): " answer
+read -p "Do you want to add second disk? (yes/no): " answer
 
 if [ "$answer" = "yes" ]; then
-  read -pr "Do you want to clear the disk? (yes/no): " answer1
+  read -p "Do you want to clear the disk? (yes/no): " answer1
 
   if [ "$answer1" = "yes" ]; then
       echo "Clearing the disk..."
