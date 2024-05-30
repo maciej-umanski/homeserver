@@ -3,13 +3,9 @@ set -e
 
 cd "$(dirname "$0")"
 
-# Disable MOTD
-########################################################################################################################
-touch /home/"${USER}"/.hushlogin
-
 # Disable no active subscription notice
 ########################################################################################################################
-sed -Ezi.bak "s/(function\(orig_cmd\) \{)/\1\n\torig_cmd\(\);\n\treturn;/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
+sed -Ezi.bak "s/(function\(orig_cmd\) \{)/\1\n\torig_cmd\(\);\n\treturn;/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
 
 # Add No subscription repositories
 ########################################################################################################################
