@@ -1,11 +1,15 @@
 #!/bin/bash
+set -e
 
-set -e # Stop script executing on any error code
 cd "$(dirname "$0")"
 
 # Disable MOTD
 ########################################################################################################################
 touch /home/"${USER}"/.hushlogin
+
+# Disable no active subscription notice
+########################################################################################################################
+sed -Ezi.bak "s/(function\(orig_cmd\) \{)/\1\n\torig_cmd\(\);\n\treturn;/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
 
 # Add No subscription repositories
 ########################################################################################################################
@@ -22,10 +26,10 @@ resize2fs /dev/mapper/pve-root
 
 # Clear and connect second drive
 ########################################################################################################################
-read -p "Do you want to add second disk? (yes/no): " answer
+read -pr "Do you want to add second disk? (yes/no): " answer
 
 if [ "$answer" = "yes" ]; then
-  read -p "Do you want to clear the disk? (yes/no): " answer1
+  read -pr "Do you want to clear the disk? (yes/no): " answer1
 
   if [ "$answer1" = "yes" ]; then
       echo "Clearing the disk..."
@@ -43,10 +47,6 @@ if [ "$answer" = "yes" ]; then
 
   apt purge --autoremove parted -y
 fi
-
-# Install software
-########################################################################################################################
-apt install avahi-daemon -y
 
 # Reboot server
 ########################################################################################################################

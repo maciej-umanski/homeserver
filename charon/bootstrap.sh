@@ -1,6 +1,6 @@
 #!/bin/bash
+set -e
 
-set -e # Stop script executing on any error code
 cd "$(dirname "$0")"
 source .env
 
