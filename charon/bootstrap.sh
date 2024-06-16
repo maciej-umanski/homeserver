@@ -2,7 +2,6 @@
 set -e
 
 cd "$(dirname "$0")"
-source .env
 
 # Install missing software
 ########################################################################################################################
@@ -36,9 +35,6 @@ EOT
 
 # Install Pi-hole
 ########################################################################################################################
-return=$(echo -n "$PIHOLE_PASSWORD" | sha256sum | sed 's/\s.*$//')
-return=$(echo -n "$return" | sha256sum | sed 's/\s.*$//')
-export PIHOLE_PASSWORD_ENCODED="$return"
 NETWORK_INTERFACE_RETRIEVE=$(ip -o -4 route show to default | awk '{print $5}')
 export NETWORK_INTERFACE="$NETWORK_INTERFACE_RETRIEVE"
 envsubst < resources/setupVars.conf.envsubst > resources/setupVars.conf
@@ -60,14 +56,6 @@ sudo cp resources/52-edns.conf /etc/dnsmasq.d/
 sudo systemctl disable --now unbound-resolvconf.service
 sudo service unbound restart
 
-# Install PiVPN
-########################################################################################################################
-NETWORK_INTERFACE_RETRIEVE=$(ip -o -4 route show to default | awk '{print $5}')
-export NETWORK_INTERFACE="$NETWORK_INTERFACE_RETRIEVE"
-envsubst < resources/options.conf.envsubst > resources/options.conf
-curl -L https://install.pivpn.io | bash /dev/stdin --unattended resources/options.conf
-sudo rm resources/options.conf
-
 # Install Airconnect
 ########################################################################################################################
 git clone https://github.com/philippe44/AirConnect.git --depth 1 resources/.temp/AirConnect
@@ -80,6 +68,10 @@ sudo chmod 644 /etc/systemd/system/airconnect.service
 sudo systemctl enable airconnect.service
 sudo service airconnect start
 rm -rf resources/.temp
+
+# Install PiVPN
+########################################################################################################################
+curl -L https://install.pivpn.io | bash
 
 # Reboot server
 ########################################################################################################################

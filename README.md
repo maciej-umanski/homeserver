@@ -1,6 +1,4 @@
 # Home server
-
-## Overview
 The home server configuration project is designed to simplify the setup, management, and maintenance of a personal home server. 
 
 ## Table of Contents
@@ -23,7 +21,6 @@ HP T620 - CPU: **AMD GX-217GA**, RAM: **4GB**, DISK: **16GB eMMC**
 
 * **Installation**
   * Perform clean installation of [Debian 12 Bookworm](https://www.debian.org/download.en.html).
-  * Execute `cp .env.example .env` and fill the variables in copied file.
   * Execute `bootstrap.sh`.
 * **Services**
   * Install missing software: `curl git net-tools sqlite3 unbound unzip`
@@ -31,8 +28,8 @@ HP T620 - CPU: **AMD GX-217GA**, RAM: **4GB**, DISK: **16GB eMMC**
   * Set static IP from DHCP reservation.
   * [Pi-hole](https://github.com/pi-hole/pi-hole) - Inserts curated [blocking lists](charon/resources/adlists.txt), configured to use Unbound as a DNS resolver.
   * [Unbound](https://nlnetlabs.nl/projects/unbound/about/) - Configured according to [pi-hole documentation](https://docs.pi-hole.net/guides/dns/unbound/).
-  * [Pivpn](https://github.com/pivpn/pivpn) - Configured to use Pi-hole as a DNS resolver.
   * [Airconnect](https://github.com/philippe44/AirConnect)
+  * [Pivpn](https://github.com/pivpn/pivpn)
 
 ## Hades
 Lenovo M900 Tiny - CPU: **Intel I5-6500T**, RAM: **16GB**, DISK: **256GB NVME + 480GB SATA SSD**
