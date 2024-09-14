@@ -12,7 +12,7 @@ TP-Link Archer AX53 Router
 
 * **Configuration**
   * Contact your ISP to change your ip from ipv6 to ipv4.
-  * Set Port Forwarding 1194 UDP -> Gateway (OpenVPN connection)
+  * Set Port Forwarding 51820 UDP -> Charon (WireGuard connection)
   * Set DHCP IP Reservation for clients.
   * Configure Dynamic DNS and obtain external domain using TPlink DDNS service.
 
@@ -23,12 +23,8 @@ HP T620 - CPU: **AMD GX-217GA**, RAM: **4GB**, DISK: **16GB eMMC**
   * Perform clean installation of [Debian 12 Bookworm](https://www.debian.org/download.en.html).
   * Execute `bootstrap.sh`.
 * **Services**
-  * Install missing software: `curl git net-tools sqlite3 unbound unzip`
-  * Disable MOTD.
-  * Set static IP from DHCP reservation.
   * [Pi-hole](https://github.com/pi-hole/pi-hole) - Inserts curated [blocking lists](charon/resources/adlists.txt), configured to use Unbound as a DNS resolver.
   * [Unbound](https://nlnetlabs.nl/projects/unbound/about/) - Configured according to [pi-hole documentation](https://docs.pi-hole.net/guides/dns/unbound/).
-  * [Airconnect](https://github.com/philippe44/AirConnect)
   * [Pivpn](https://github.com/pivpn/pivpn)
 
 ## Hades
@@ -38,7 +34,6 @@ Lenovo M900 Tiny - CPU: **Intel I5-6500T**, RAM: **16GB**, DISK: **256GB NVME + 
   * Perform clean installation of [Proxmox Virtual Environment](https://www.proxmox.com/en/downloads/proxmox-virtual-environment)
   * Execute `bootstrap.sh`
 * **Services**
-  * Disable MOTD.
   * Enable [No subscription repositories](https://pve.proxmox.com/wiki/Package_Repositories).
   * Disable no active subscription notice. 
   * Delete local-lvm and resize local.
@@ -51,7 +46,6 @@ Raspberry Pi Zero W - DISK: **4GB microSD**
   * Prepare SD card using [rpi-imager](https://github.com/raspberrypi/rpi-imager) with Raspberry Pi OS (Legacy, 32-bit) Lite
   * Execute `bootstrap.sh`.
 * **Services**
-  * Disable MOTD.
   * Set default audio device to usb stereo system.
   * Disable energy saving on Wi-Fi card.
   * Install [NQPTP](https://github.com/mikebrady/nqptp) and [Shairport-sync](https://github.com/mikebrady/shairport-sync)

@@ -1,15 +1,8 @@
 #!/bin/bash
 
-# Disable MOTD
-########################################################################################################################
-touch /home/"${USER}"/.hushlogin
-
 # Update packages
 ########################################################################################################################
-sudo apt update
-sudo apt upgrade -y
-sudo apt autoremove -y
-sudo apt autoclean -y
+sudo apt update && sudo apt upgrade -y
 
 # Set default audio device to usb stereo system
 ########################################################################################################################

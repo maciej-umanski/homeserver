@@ -3,16 +3,9 @@ set -e
 
 cd "$(dirname "$0")"
 
-# Install missing software
-########################################################################################################################
-sudo apt install curl git net-tools sqlite3 unbound unzip -y
-
-# Disable MOTD
-########################################################################################################################
-touch /home/"${USER}"/.hushlogin
-
 # Set static ip
 ########################################################################################################################
+sudo apt install net-tools -y
 INTERFACE=$(ip -o -4 route show to default | awk '{print $5}')
 GATEWAY=$(ip -o -4 route show to default | awk '{print $3}')
 NETMASK=$(sudo ifconfig | grep -i mask | awk '{print $4}' | head -1)
@@ -35,6 +28,7 @@ EOT
 
 # Install Pi-hole
 ########################################################################################################################
+sudo apt install sqlite3 curl -y
 NETWORK_INTERFACE_RETRIEVE=$(ip -o -4 route show to default | awk '{print $5}')
 export NETWORK_INTERFACE="$NETWORK_INTERFACE_RETRIEVE"
 envsubst < resources/setupVars.conf.envsubst > resources/setupVars.conf
@@ -48,26 +42,14 @@ done < resources/adlists.txt
 pihole updateGravity
 sudo rm resources/setupVars.conf
 
-# Configure Unbound
+# Install Unbound
 ########################################################################################################################
+sudo apt install unbound -y
 wget https://www.internic.net/domain/named.root -qO- | sudo tee /var/lib/unbound/root.hints
 sudo cp resources/pi-hole.conf /etc/unbound/unbound.conf.d/
 sudo cp resources/52-edns.conf /etc/dnsmasq.d/
 sudo systemctl disable --now unbound-resolvconf.service
 sudo service unbound restart
-
-# Install Airconnect
-########################################################################################################################
-git clone https://github.com/philippe44/AirConnect.git --depth 1 resources/.temp/AirConnect
-unzip resources/.temp/AirConnect/AirConnect-*.zip -d resources/.temp/bin
-sudo mkdir /var/lib/airconnect
-sudo cp resources/.temp/bin/aircast-linux-x86_64-static /var/lib/airconnect/
-sudo cp resources/airconnect.service /etc/systemd/system/
-sudo chmod 744 /var/lib/airconnect/aircast-linux-x86_64-static
-sudo chmod 644 /etc/systemd/system/airconnect.service
-sudo systemctl enable airconnect.service
-sudo service airconnect start
-rm -rf resources/.temp
 
 # Install PiVPN
 ########################################################################################################################
