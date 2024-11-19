@@ -45,6 +45,7 @@ Lenovo M900 Tiny - CPU: **Intel I5-6500T**, RAM: **16GB**, DISK: **256GB NVME + 
   * [docker](https://docs.docker.com/engine/install/debian/)
     * [airconnect](https://github.com/1activegeek/docker-airconnect)
     * [iSponsorBlockTV](https://github.com/dmunozv04/iSponsorBlockTV)
+    * [ollama](https://ollama.com) + [open-webui](https://openwebui.com)
 
 ## Orpheus
 Raspberry Pi Zero W - DISK: **4GB microSD**
