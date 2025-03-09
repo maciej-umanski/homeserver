@@ -1,8 +1,7 @@
-version: '3.3'
 services:
-    iSponsorBlockTV:
-        image: ghcr.io/dmunozv04/isponsorblocktv
-        container_name: iSponsorBlockTV
-        restart: unless-stopped
-        volumes:
-        - /home/maciej/services/isponsorblocktv:/app/data
+  iSponsorBlockTV:
+    image: ghcr.io/dmunozv04/isponsorblocktv
+    container_name: iSponsorBlockTV
+    restart: unless-stopped
+    volumes:
+      - /home/maciej/services/isponsorblocktv:/app/data

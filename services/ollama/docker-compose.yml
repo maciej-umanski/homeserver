@@ -11,7 +11,6 @@ services:
   openWebUI:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
-    restart: always
     ports:
       - "3000:8080"
     extra_hosts:
@@ -20,7 +19,7 @@ services:
       - open-webui-local:/app/backend/data
     environment:
       - 'OLLAMA_BASE_URL=http://ollama:11434'
-    depends_on: 
+    depends_on:
       - ollama
     restart: unless-stopped
 

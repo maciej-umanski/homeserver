@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
   airconnect:
     image: 1activegeek/airconnect
     container_name: airconnect
     network_mode: host
     environment:
-      - AIRUPNP_VAR=kill 
+      - AIRUPNP_VAR=kill
     restart: unless-stopped

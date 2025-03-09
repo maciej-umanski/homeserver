@@ -34,14 +34,13 @@ if [ "$answer" = "yes" ]; then
       parted -a opt /dev/sda mkpart primary ext4 0% 100%
       mkfs.ext4 -L data /dev/sda1
       echo "Disk cleared successfully."
+      apt purge --autoremove parted -y
   fi
 
   mkdir -p /mnt/data
   echo 'LABEL=data /mnt/data ext4 defaults 0 2' | tee -a /etc/fstab
   mount -a
   systemctl daemon-reload
-
-  apt purge --autoremove parted -y
 fi
 
 # Reboot server
